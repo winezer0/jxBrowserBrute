@@ -1,10 +1,10 @@
-package com.fuping;
+package com.nova;
 
-import com.fuping.BrowserUtils.MyDialogHandler;
-import com.fuping.CommonUtils.ElementUtils;
-import com.fuping.CommonUtils.MyFileUtils;
-import com.fuping.CommonUtils.SystemUtilization;
-import com.fuping.LoadDict.UserPassPair;
+import com.nova.BrowserUtils.MyDialogHandler;
+import com.nova.CommonUtils.ElementUtils;
+import com.nova.CommonUtils.MyFileUtils;
+import com.nova.CommonUtils.SystemUtilization;
+import com.nova.LoadDict.UserPassPair;
 import com.teamdev.jxbrowser.chromium.Callback;
 import com.teamdev.jxbrowser.chromium.*;
 import com.teamdev.jxbrowser.chromium.dom.By;
@@ -33,18 +33,18 @@ import java.util.*;
 import java.util.concurrent.TimeoutException;
 
 import static cn.hutool.core.util.StrUtil.isEmptyIfStr;
-import static com.fuping.BrowserUtils.BrowserUtils.*;
-import static com.fuping.CaptchaIdentify.CaptchaUtils.LoadImageToFile;
-import static com.fuping.CaptchaIdentify.RemoteApiIdent.remoteIndentCaptcha;
-import static com.fuping.CommonUtils.UiUtils.*;
-import static com.fuping.CommonUtils.Utils.*;
-import static com.fuping.LoadConfig.Constant.*;
-import static com.fuping.LoadConfig.Constant.EleFoundStatus.*;
-import static com.fuping.LoadConfig.Constant.LoadingStatus.*;
-import static com.fuping.LoadConfig.Constant.LoginStatus.*;
-import static com.fuping.LoadConfig.MyConst.*;
-import static com.fuping.LoadDict.LoadDictUtils.*;
-import static com.fuping.PrintLog.PrintLog.print_debug;
+import static com.nova.BrowserUtils.BrowserUtils.*;
+import static com.nova.CaptchaIdentify.CaptchaUtils.LoadImageToFile;
+import static com.nova.CaptchaIdentify.RemoteApiIdent.remoteIndentCaptcha;
+import static com.nova.CommonUtils.UiUtils.*;
+import static com.nova.CommonUtils.Utils.*;
+import static com.nova.LoadConfig.Constant.*;
+import static com.nova.LoadConfig.Constant.EleFoundStatus.*;
+import static com.nova.LoadConfig.Constant.LoadingStatus.*;
+import static com.nova.LoadConfig.Constant.LoginStatus.*;
+import static com.nova.LoadConfig.MyConst.*;
+import static com.nova.LoadDict.LoadDictUtils.*;
+import static com.nova.PrintLog.PrintLog.print_debug;
 
 public class FXMLDocumentController implements Initializable {
     @FXML  //识别结果判断条件

@@ -1,14 +1,14 @@
-package com.fuping.LoadConfig;
+package com.nova.LoadConfig;
 
-import com.fuping.LoadDict.UserPassPair;
+import com.nova.LoadDict.UserPassPair;
 
-import static com.fuping.LoadConfig.Constant.DictMode.CARTESIAN;
-import static com.fuping.LoadConfig.Constant.EleFindType.XPATH;
-import static com.fuping.LoadConfig.Constant.EleFoundStatus.BREAK;
-import static com.fuping.LoadConfig.Constant.EleFoundStatus.CONTINUE;
-import static com.fuping.LoadConfig.Constant.HttpMethod.GET;
-import static com.fuping.LoadConfig.Constant.HttpMethod.POST;
-import static com.fuping.PrintLog.PrintLog.print_debug;
+import static com.nova.LoadConfig.Constant.DictMode.CARTESIAN;
+import static com.nova.LoadConfig.Constant.EleFindType.XPATH;
+import static com.nova.LoadConfig.Constant.EleFoundStatus.BREAK;
+import static com.nova.LoadConfig.Constant.EleFoundStatus.CONTINUE;
+import static com.nova.LoadConfig.Constant.HttpMethod.GET;
+import static com.nova.LoadConfig.Constant.HttpMethod.POST;
+import static com.nova.PrintLog.PrintLog.print_debug;
 
 public class MyConst {
     //设置配置参数名称

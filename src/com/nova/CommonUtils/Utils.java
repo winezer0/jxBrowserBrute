@@ -1,4 +1,4 @@
-package com.fuping.CommonUtils;
+package com.nova.CommonUtils;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -9,7 +9,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static cn.hutool.core.util.StrUtil.isEmptyIfStr;
-import static com.fuping.CommonUtils.ElementUtils.isNotEmptyObj;
+import static com.nova.CommonUtils.ElementUtils.isNotEmptyObj;
 
 public class Utils {
 

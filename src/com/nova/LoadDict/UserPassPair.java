@@ -1,4 +1,4 @@
-package com.fuping.LoadDict;
+package com.nova.LoadDict;
 
 
 import java.util.Objects;

@@ -1,4 +1,4 @@
-package com.fuping.BrowserUtils;
+package com.nova.BrowserUtils;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLSession;

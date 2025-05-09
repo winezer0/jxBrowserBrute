@@ -1,4 +1,4 @@
-package com.fuping.CommonUtils;
+package com.nova.CommonUtils;
 
 import java.lang.management.ManagementFactory;
 import com.sun.management.OperatingSystemMXBean;

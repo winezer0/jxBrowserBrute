@@ -1,7 +1,7 @@
-package com.fuping.CommonUtils;
+package com.nova.CommonUtils;
 
-import com.fuping.FXMLDocumentController;
-import com.fuping.LoadConfig.Constant;
+import com.nova.FXMLDocumentController;
+import com.nova.LoadConfig.Constant;
 import com.teamdev.jxbrowser.chromium.Browser;
 import com.teamdev.jxbrowser.chromium.JSBoolean;
 import com.teamdev.jxbrowser.chromium.JSValue;
@@ -10,9 +10,9 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 
-import static com.fuping.LoadConfig.Constant.EleFoundStatus.*;
-import static com.fuping.LoadConfig.MyConst.*;
-import static com.fuping.PrintLog.PrintLog.*;
+import static com.nova.LoadConfig.Constant.EleFoundStatus.*;
+import static com.nova.LoadConfig.MyConst.*;
+import static com.nova.PrintLog.PrintLog.*;
 
 public class UiUtils {
     //一些工具类方法

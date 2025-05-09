@@ -1,4 +1,4 @@
-package com.fuping.BrowserUtils;
+package com.nova.BrowserUtils;
 
 
 import com.teamdev.jxbrowser.chromium.CloseStatus;

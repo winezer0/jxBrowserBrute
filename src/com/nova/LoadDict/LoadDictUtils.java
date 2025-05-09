@@ -1,8 +1,8 @@
-package com.fuping.LoadDict;
+package com.nova.LoadDict;
 
 import cn.hutool.core.io.FileUtil;
-import com.fuping.CommonUtils.MyFileUtils;
-import com.fuping.LoadConfig.Constant;
+import com.nova.CommonUtils.MyFileUtils;
+import com.nova.LoadConfig.Constant;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -11,9 +11,9 @@ import java.util.HashSet;
 import java.util.List;
 
 import static cn.hutool.core.util.StrUtil.isEmptyIfStr;
-import static com.fuping.LoadConfig.Constant.DictMode.*;
-import static com.fuping.PrintLog.PrintLog.print_error;
-import static com.fuping.PrintLog.PrintLog.print_debug;
+import static com.nova.LoadConfig.Constant.DictMode.*;
+import static com.nova.PrintLog.PrintLog.print_error;
+import static com.nova.PrintLog.PrintLog.print_debug;
 
 public class LoadDictUtils {
     public static List<String> readDictFile(String filePath) {

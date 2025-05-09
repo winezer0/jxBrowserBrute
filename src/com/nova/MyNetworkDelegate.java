@@ -1,8 +1,8 @@
-package com.fuping;
+package com.nova;
 
-import com.fuping.CommonUtils.ElementUtils;
-import com.fuping.CommonUtils.HttpUrlInfo;
-import com.fuping.LoadConfig.Constant;
+import com.nova.CommonUtils.ElementUtils;
+import com.nova.CommonUtils.HttpUrlInfo;
+import com.nova.LoadConfig.Constant;
 import com.teamdev.jxbrowser.chromium.*;
 import com.teamdev.jxbrowser.chromium.javafx.DefaultNetworkDelegate;
 import javafx.application.Platform;
@@ -25,15 +25,15 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import static cn.hutool.core.util.StrUtil.isEmptyIfStr;
-import static com.fuping.CommonUtils.ElementUtils.*;
-import static com.fuping.CommonUtils.UiUtils.*;
-import static com.fuping.CommonUtils.Utils.concatHeaders;
-import static com.fuping.CommonUtils.Utils.countNotEmptyStrings;
-import static com.fuping.LoadConfig.Constant.LoadingStatus.LOADING_FINISH;
-import static com.fuping.LoadConfig.Constant.LoginStatus.*;
-import static com.fuping.LoadConfig.MyConst.GLOBAL_MATCH_BLOCK_SUFFIX;
-import static com.fuping.PrintLog.PrintLog.print_debug;
-import static com.fuping.PrintLog.PrintLog.print_info;
+import static com.nova.CommonUtils.ElementUtils.*;
+import static com.nova.CommonUtils.UiUtils.*;
+import static com.nova.CommonUtils.Utils.concatHeaders;
+import static com.nova.CommonUtils.Utils.countNotEmptyStrings;
+import static com.nova.LoadConfig.Constant.LoadingStatus.LOADING_FINISH;
+import static com.nova.LoadConfig.Constant.LoginStatus.*;
+import static com.nova.LoadConfig.MyConst.GLOBAL_MATCH_BLOCK_SUFFIX;
+import static com.nova.PrintLog.PrintLog.print_debug;
+import static com.nova.PrintLog.PrintLog.print_info;
 
 public class MyNetworkDelegate extends DefaultNetworkDelegate {
 

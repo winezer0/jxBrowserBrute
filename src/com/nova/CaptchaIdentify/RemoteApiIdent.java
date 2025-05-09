@@ -1,17 +1,17 @@
-package com.fuping.CaptchaIdentify;
+package com.nova.CaptchaIdentify;
 
 import cn.hutool.http.HttpRequest;
 import cn.hutool.http.HttpResponse;
 import cn.hutool.http.HttpUtil;
-import com.fuping.CommonUtils.MyFileUtils;
-import com.fuping.CommonUtils.ElementUtils;
+import com.nova.CommonUtils.MyFileUtils;
+import com.nova.CommonUtils.ElementUtils;
 
 import static cn.hutool.core.util.StrUtil.isEmptyIfStr;
-import static com.fuping.CaptchaIdentify.CaptchaUtils.imageToBase64;
-import static com.fuping.CaptchaIdentify.CaptchaUtils.writeBytesToFile;
-import static com.fuping.CommonUtils.Utils.*;
-import static com.fuping.PrintLog.PrintLog.print_error;
-import static com.fuping.PrintLog.PrintLog.print_debug;
+import static com.nova.CaptchaIdentify.CaptchaUtils.imageToBase64;
+import static com.nova.CaptchaIdentify.CaptchaUtils.writeBytesToFile;
+import static com.nova.CommonUtils.Utils.*;
+import static com.nova.PrintLog.PrintLog.print_error;
+import static com.nova.PrintLog.PrintLog.print_debug;
 
 public class RemoteApiIdent {
 

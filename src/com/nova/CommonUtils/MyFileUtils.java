@@ -1,13 +1,13 @@
-package com.fuping.CommonUtils;
+package com.nova.CommonUtils;
 
 import cn.hutool.core.io.FileUtil;
-import com.fuping.LoadDict.UserPassPair;
+import com.nova.LoadDict.UserPassPair;
 
 import java.io.File;
 
 import static cn.hutool.core.io.CharsetDetector.detect;
-import static com.fuping.LoadConfig.MyConst.*;
-import static com.fuping.PrintLog.PrintLog.print_debug;
+import static com.nova.LoadConfig.MyConst.*;
+import static com.nova.PrintLog.PrintLog.print_debug;
 
 public class MyFileUtils {
     public static String getFileStrAbsolutePath(String fileStr) {

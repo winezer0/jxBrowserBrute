@@ -1,16 +1,16 @@
-package com.fuping.LoadConfig;
+package com.nova.LoadConfig;
 
 
 import cn.hutool.core.io.FileUtil;
-import com.fuping.CommonUtils.MyFileUtils;
-import com.fuping.CommonUtils.ElementUtils;
+import com.nova.CommonUtils.MyFileUtils;
+import com.nova.CommonUtils.ElementUtils;
 
 import java.io.*;
 import java.util.Properties;
 
 import static cn.hutool.core.util.StrUtil.isEmptyIfStr;
-import static com.fuping.PrintLog.PrintLog.print_error;
-import static com.fuping.PrintLog.PrintLog.print_debug;
+import static com.nova.PrintLog.PrintLog.print_error;
+import static com.nova.PrintLog.PrintLog.print_debug;
 
 public class ConfigReader {
     private final Properties properties;

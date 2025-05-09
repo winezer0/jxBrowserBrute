@@ -1,4 +1,4 @@
-package com.fuping.LoadConfig;
+package com.nova.LoadConfig;
 
 public class Constant {
 

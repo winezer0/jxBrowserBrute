@@ -1,9 +1,9 @@
-package com.fuping.BrowserUtils;
+package com.nova.BrowserUtils;
 
-import com.fuping.CommonUtils.ElementUtils;
-import com.fuping.CommonUtils.UiUtils;
-import com.fuping.CommonUtils.Utils;
-import com.fuping.LoadConfig.Constant;
+import com.nova.CommonUtils.ElementUtils;
+import com.nova.CommonUtils.UiUtils;
+import com.nova.CommonUtils.Utils;
+import com.nova.LoadConfig.Constant;
 import com.teamdev.jxbrowser.chromium.*;
 import com.teamdev.jxbrowser.chromium.dom.By;
 import com.teamdev.jxbrowser.chromium.dom.DOMDocument;
@@ -20,9 +20,9 @@ import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static com.fuping.CommonUtils.ElementUtils.isContainOneKeyByEach;
-import static com.fuping.LoadConfig.MyConst.*;
-import static com.fuping.PrintLog.PrintLog.print_debug;
+import static com.nova.CommonUtils.ElementUtils.isContainOneKeyByEach;
+import static com.nova.LoadConfig.MyConst.*;
+import static com.nova.PrintLog.PrintLog.print_debug;
 
 public class BrowserUtils {
     //清除浏览器当前 Cookies

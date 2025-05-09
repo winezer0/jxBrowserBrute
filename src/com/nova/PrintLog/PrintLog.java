@@ -1,4 +1,4 @@
-package com.fuping.PrintLog;
+package com.nova.PrintLog;
 
 public class PrintLog {
 

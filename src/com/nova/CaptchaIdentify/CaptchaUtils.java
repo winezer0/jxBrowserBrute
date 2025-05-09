@@ -1,4 +1,4 @@
-package com.fuping.CaptchaIdentify;
+package com.nova.CaptchaIdentify;
 
 import cn.hutool.http.HttpRequest;
 import cn.hutool.http.HttpResponse;
@@ -10,8 +10,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Base64;
 
-import static com.fuping.CommonUtils.MyFileUtils.getFileStrAbsolutePath;
-import static com.fuping.PrintLog.PrintLog.print_debug;
+import static com.nova.CommonUtils.MyFileUtils.getFileStrAbsolutePath;
+import static com.nova.PrintLog.PrintLog.print_debug;
 
 public class CaptchaUtils {
 

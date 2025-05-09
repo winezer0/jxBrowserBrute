@@ -1,12 +1,12 @@
-package com.fuping.CommonUtils;
+package com.nova.CommonUtils;
 
 
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import static com.fuping.CommonUtils.ElementUtils.isEmptyObj;
-import static com.fuping.CommonUtils.ElementUtils.isNotEmptyObj;
-import static com.fuping.PrintLog.PrintLog.print_error;
+import static com.nova.CommonUtils.ElementUtils.isEmptyObj;
+import static com.nova.CommonUtils.ElementUtils.isNotEmptyObj;
+import static com.nova.PrintLog.PrintLog.print_error;
 
 //创建一个类用于存储 URL解析结果的类
 public class HttpUrlInfo {

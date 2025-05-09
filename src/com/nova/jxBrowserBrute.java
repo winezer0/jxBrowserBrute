@@ -1,7 +1,7 @@
-package com.fuping;
+package com.nova;
 
 
-import com.fuping.LoadConfig.MyConst;
+import com.nova.LoadConfig.MyConst;
 import com.teamdev.jxbrowser.chromium.ProductInfo;
 import com.teamdev.jxbrowser.chromium.ay;
 import javafx.application.Application;
@@ -15,8 +15,8 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.math.BigInteger;
 
-import static com.fuping.LoadConfig.MyConst.globalProgramVersion;
-import static com.fuping.PrintLog.PrintLog.print_debug;
+import static com.nova.LoadConfig.MyConst.globalProgramVersion;
+import static com.nova.PrintLog.PrintLog.print_debug;
 
 public class jxBrowserBrute extends Application {
 
