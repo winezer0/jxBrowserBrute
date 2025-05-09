@@ -626,39 +626,21 @@ public class FXMLDocumentController implements Initializable {
 
             //基于登录URL初始化|URL更新|日志文件配置
             MyFileUtils.initBaseOnLoginUrlFile(login_access_url);
-
-            //检查是否存在关键按钮信息修改,(都需要更新到全局变量做记录),并且重新更新加载字典
-            boolean isModifiedAuthFile = MyFileUtils.isModifiedAuthFile(); //字典文件是否修改
-            //print_info(String.format("isModifiedAuthFile %s", isModifiedAuthFile));
-
-            boolean isModifiedLoginUrl = MyFileUtils.isModifiedLoginUrl(login_access_url); //登录URL是否修改
-            //print_info(String.format("isModifiedLoginUrl %s", isModifiedLoginUrl));
-
-            boolean isModifiedDictMode = MyFileUtils.isModifiedDictMode(this.bro_id_dict_compo_mode_combo.getValue()); //字典模式是否修改
-            //print_info(String.format("isModifiedDictMode %s", isModifiedDictMode));
-
-            boolean isModifiedExcludeHistory = MyFileUtils.isModifiedExcludeHistory(this.bro_id_exclude_history_check.isSelected());//排除历史状态是否修改
-            //print_info(String.format("isModifiedExcludeHistory %s", isModifiedExcludeHistory));
-
-            if(GLOBAL_EXCLUDE_HISTORY_SWITCH ||isModifiedAuthFile||isModifiedLoginUrl||isModifiedDictMode||isModifiedExcludeHistory){
-                //当登录URL或账号密码文件修改后,就需要重新更新
-                printlnDebugOnUIAndConsole("加载账号密码文件开始...");
-                //点击登录后加载字典文件
-                HashSet<UserPassPair> UserPassPairsHashSet = loadUserPassFile(GLOBAL_USERNAME_FILE, GLOBAL_PASSWORD_FILE, GLOBAL_USER_PASS_FILE, GLOBAL_PAIR_SEPARATOR, DictMode.fromString(default_dict_compo_mode));
-
-                //替换密码中的用户名变量
-                UserPassPairsHashSet = replaceUserMarkInPass(UserPassPairsHashSet, GLOBAL_USER_MARK_IN_PASS);
-                print_debug(String.format("Pairs Count After Replace Mark Str [%s]", UserPassPairsHashSet.size()));
-
-                //读取 history 文件,排除历史扫描记录 ，
-                if (GLOBAL_EXCLUDE_HISTORY_SWITCH) {
-                    UserPassPairsHashSet = excludeHistoryPairs(UserPassPairsHashSet, globalCrackHistoryFilePath, GLOBAL_PAIR_SEPARATOR);
-                    print_debug(String.format("Pairs Count After Exclude History [%s] From [%s]", UserPassPairsHashSet.size(), globalCrackHistoryFilePath));
-                }
-
-                //将账号密码字典格式从 HashSet 转为 数组,便于索引统计
-                globalUserPassPairsArray = UserPassPairsHashSet.toArray(new UserPassPair[0]);
+            //当登录URL或账号密码文件修改后,就需要重新更新
+            printlnDebugOnUIAndConsole("加载账号密码文件开始...");
+            //点击登录后加载字典文件
+            HashSet<UserPassPair> UserPassPairsHashSet = loadUserPassFile(GLOBAL_USERNAME_FILE, GLOBAL_PASSWORD_FILE, GLOBAL_USER_PASS_FILE, GLOBAL_PAIR_SEPARATOR, DictMode.fromString(default_dict_compo_mode));
+            //替换密码中的用户名变量
+            UserPassPairsHashSet = replaceUserMarkInPass(UserPassPairsHashSet, GLOBAL_USER_MARK_IN_PASS);
+            print_debug(String.format("Pairs Count After Replace Mark Str [%s]", UserPassPairsHashSet.size()));
+            //读取 history 文件,排除历史扫描记录 ，
+            if (GLOBAL_EXCLUDE_HISTORY_SWITCH) {
+                UserPassPairsHashSet = excludeHistoryPairs(UserPassPairsHashSet, globalCrackHistoryFilePath, GLOBAL_PAIR_SEPARATOR);
+                print_debug(String.format("Pairs Count After Exclude History [%s] From [%s]", UserPassPairsHashSet.size(), globalCrackHistoryFilePath));
             }
+
+            //将账号密码字典格式从 HashSet 转为 数组,便于索引统计
+            globalUserPassPairsArray = UserPassPairsHashSet.toArray(new UserPassPair[0]);
 
             //判断字典列表数量是否大于0
             if(globalUserPassPairsArray.length > 0){
