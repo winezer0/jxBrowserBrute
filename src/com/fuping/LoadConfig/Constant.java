@@ -49,7 +49,6 @@ public class Constant {
     // 定义 DictMode 枚举
     public enum DictMode {
         // "pair_file"; //账号密码对文件
-        // "pitchfork"; //账号密码对应模式，要求账号和密码文件数量相同，一般不用
         // "cartesian"; //默认 交叉模式 常用
 
         PAIR_FILE, PITCHFORK, CARTESIAN;

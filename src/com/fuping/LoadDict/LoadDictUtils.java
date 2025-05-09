@@ -45,19 +45,6 @@ public class LoadDictUtils {
         return newLines;
     }
 
-    public static HashSet<UserPassPair> createPitchforkUserPassPairs(List<String> usernames, List<String> passwords) {
-        //创建 pitchfork 模式的用户密码对
-        int minSize = Math.min(usernames.size(), passwords.size());
-        HashSet<UserPassPair> userPassPairs = new HashSet<>();
-        for (int i = 0; i < minSize; i++) {
-            String username = usernames.get(i);
-            String password = passwords.get(i);
-            userPassPairs.add(new UserPassPair(username.trim(), password.trim()));
-        }
-        print_debug(String.format("Create Pitchfork (pairs=min[m,n]) User Pass Pairs [%s]", userPassPairs.size()));
-        return userPassPairs;
-    }
-
     public static HashSet<UserPassPair> createCartesianUserPassPairs(List<String> usernames, List<String> passwords) {
         //创建 笛卡尔积 模式的用户密码对
         HashSet<UserPassPair> userPassPairs = new HashSet<>();
@@ -104,12 +91,7 @@ public class LoadDictUtils {
                 //处理账号密码文件
                 List<String> userNameList =  readDictFile(userNameFile);
                 List<String> passWordList =  readDictFile(passWordFile);
-                //判断是否使用 pitchfork 模式
-                if(PITCHFORK.equals(dictCompoMode)){
-                    userPassPairs = createPitchforkUserPassPairs(userNameList, passWordList);
-                }else {
-                    userPassPairs = createCartesianUserPassPairs(userNameList, passWordList);
-                }
+                userPassPairs = createCartesianUserPassPairs(userNameList, passWordList);
             }
         }
         return userPassPairs;

@@ -42,7 +42,7 @@ public class MyConst {
     public static String GLOBAL_USER_PASS_FILE = null;
     public static String GLOBAL_PAIR_SEPARATOR = null;
 
-    public static String default_dict_compo_mode = null;      //指定字典组合方式 cartesian  pitchfork pair_file
+    public static String default_dict_compo_mode = null;      //指定字典组合方式 cartesian  pair_file
 
     public static String GLOBAL_USER_MARK_IN_PASS = "%USER%";  //密码内的用户名变量
     public static boolean GLOBAL_EXCLUDE_HISTORY_SWITCH = false;    //是否排除历史爆破记录
