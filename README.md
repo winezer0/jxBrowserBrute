@@ -1,7 +1,6 @@
-# CrackCaptchaLogin
+# JxBrowserBrute
 
-基于浏览器的、支持验证码识别的、登录爆破工具
-
+基于java JxBrowser 浏览器的、支持验证码识别的、登录爆破测试工具
 
 ## 免责协议
 
@@ -20,37 +19,6 @@
 通过使用本项目，您同意接受上述免责条款。如果您不同意这些条款，请不要使用本项目。
 
 
-
-## release版本下载
-
-```
-识别数据文件过大, 编译打包版本请关注 NOVASEC 公众号 回复【共享】获取网盘下载链接
-NOVASEC 公众号 https://mp.weixin.qq.com/s/9ELFFr-y9ixMdnOXR97MHg
-本地识别数据在网盘 CrackCaptchaLogin下载
-
-为防止未授权的安全测试使用起见后续版本jar包请通过其他渠道获取或自编译打包
-```
-
-
-## 功能介绍
-
-参考CrackCaptchaLogin 的框架进行修改
-```
-仅保留了本地OCR识别功能,其他都已经进行重写。
-新增功能较多，可通过配置文件分析所有支持的功能
-
-CrackCaptcahLogin 1.0 小米范验证码登陆爆破工具
-http://www.cnblogs.com/SEC-fsq/p/5712792.html
-
-
-CrackCaptcahLogin 2.0 小米范验证码登陆爆破工具修改版
-https://github.com/hkylin/CrackCaptcahLogin
-
-CrackCaptcahLogin 2.0 更新：
-1.	增加本地打码功能接口，可以自行添加验证码识别的方法。这样针对简单的验证码，不必使用云打码，使用自己的验证码识别功能即可。
-2.	破解jxbrowser组件，重新整合代码，使得二次开发更方便。
-```
-
 ##  工具使用 
 
 ### 启动ocr api服务器.
@@ -61,7 +29,7 @@ CrackCaptcahLogin 2.0 更新：
 https://github.com/winezer0/OcrApi/tree/main/ddddocr_api
 
 ### 基本使用：
-使用命令`java -jar CrackCaptcahLogin.jar`打开工具
+使用命令`java -jar JXBrowerBrute.jar`打开工具
 
 根据 UI 进行手动配置
 
@@ -72,19 +40,11 @@ https://github.com/winezer0/OcrApi/tree/main/ddddocr_api
 自定义启动时的配置文件名称 
 
 ```
-java -Dconfig=xxx.prop -jar CrackCaptchaLogin.jar
+java -Dconfig=xxx.prop -jar JXBrowerBrute.jar
 ```
 
 
 ### 验证码识别配置
-
-#### 本地识别 OCR使用方法
-
-此步骤非必须，如果使用 本地 tess4j 识别验证码的话需要
-
-在jar同级目录下创建 tessdata目录 存放，用于 tesseract-ocr 的训练识别验证码的库。
-
-注意：本地识别验证码没有做什么处理，误报很高，需要自己指定自己的训练级。
 
 #### 远程识别OCR使用方法
 
@@ -161,20 +121,15 @@ login_url=http://1.1.1.1/admin||http://1.1.1.1/admin/login.html
 
 ## 工具限制
 ```
-目前仅实现单线程及单进程爆破，
+目前仅实现单进程爆破操作， 如果需要多开任务，就多开几个程序操作
 
 由于jxBrowser版本问题, 没有办法进行太多的自定义配置。
-
-如果需要多开爆破任务，就多开几个虚拟机操作
 ```
 
 ## 不适用的场景
 ```
-samwaf 场景不适用
+已知 samwaf 场景不适用
+
+已知 预点击场景可能未完善
 ```
 
-
-## TODO
-```
-1、清理不需要的功能和代码
-```
