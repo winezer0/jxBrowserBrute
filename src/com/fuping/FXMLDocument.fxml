@@ -46,7 +46,7 @@
                                              </FXCollections>
                                           </items>
                                        </ComboBox>
-                                       <TextField fx:id="bro_id_pre_click_ele_text" promptText="预点击元素定位信息[暂未完成]" text="" HBox.hgrow="ALWAYS" />
+                                       <TextField fx:id="bro_id_pre_click_ele_text" promptText="预点击元素定位信息列表" text="" HBox.hgrow="ALWAYS" />
                                     </children>
                                     <VBox.margin>
                                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
