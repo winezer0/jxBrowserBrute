@@ -282,12 +282,6 @@
          <HBox alignment="CENTER_LEFT" prefHeight="12.0" prefWidth="0.0" spacing="2.0" >
             <children>
                <Label prefHeight="23.0" prefWidth="108.0" text="验证码识别" />
-               <RadioButton fx:id="bro_id_yzm_remote_ident_radio" mnemonicParsing="false" prefHeight="23.0" prefWidth="108.0" text="远程识别" selected="true" >
-                  <toggleGroup>
-                     <ToggleGroup fx:id="bro_yzm_group"/>
-                  </toggleGroup>
-               </RadioButton>
-               <RadioButton fx:id="bro_id_locale_ident_flag_radio" mnemonicParsing="false" prefHeight="23.0" prefWidth="108.0" text="本地识别" toggleGroup="$bro_yzm_group" />
                <ComboBox fx:id="bro_id_ident_time_out_combo" prefWidth="108.0" promptText="识别超时">
                   <value>
                      <Integer fx:value="5000" />

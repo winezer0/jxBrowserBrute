@@ -12,7 +12,7 @@ import static com.fuping.PrintLog.PrintLog.print_debug;
 
 public class MyConst {
     //设置配置参数名称
-    public static String globalProgramVersion = "NOVASEC 3.9.5 20250303" ;
+    public static String globalProgramVersion = "NOVASEC 4.0.1" ;
 
     // 私有静态成员变量，用于保存单例实例
     private static MyConst MyConstInstance;
@@ -102,7 +102,6 @@ public class MyConst {
     public static Constant.EleFindType default_captcha_box_ele_type = null;
 
     public static boolean default_ident_captcha_switch = false;
-    public static boolean default_locale_identify_switch = false;
 
     //验证码识别相关配置变量
     public static int default_ident_time_out=1000;  //验证码识别超时毫秒
@@ -114,8 +113,6 @@ public class MyConst {
     public static String default_remote_extract_regex =null; //远程模式 从响应中提取验证码的正则
     public static String default_remote_expected_status =null; //访问成功状态正则匹配
     public static String default_remote_expected_keywords =null;  //访问成功响应正则匹配
-
-    public static String GLOBAL_LOCALE_TESS_DATA_NAME =null; //默认调用的数据集名称, 实际上就是tessdata目录下的文件名前缀
 
     //定义查找元素失败后的操作
     public static Constant.EleFoundStatus GLOBAL_BROWSER_CLOSE_ACTION;     //浏览器关闭后的动作  break
@@ -189,7 +186,6 @@ public class MyConst {
         default_resp_key_captcha_regex = configReader.getString("captcha_regex", "验证码错误");
 
         default_ident_captcha_switch = configReader.isTrue("ident_captcha_switch", false);
-        default_locale_identify_switch = configReader.isTrue("locale_Identify", false);
 
         default_captcha_actual_url = configReader.getString("captcha_actual_url", null);
         default_captcha_actual_method = Constant.HttpMethod.fromString(configReader.getString("captcha_actual_method", GET.name()));
@@ -204,8 +200,6 @@ public class MyConst {
         default_remote_extract_regex = configReader.getString("remote_extract_regex", null);
         default_remote_expected_status = configReader.getString("remote_expected_status", null);
         default_remote_expected_keywords = configReader.getString("remote_expected_keywords", null);
-        //指定默认本地识别数据集路径
-        GLOBAL_LOCALE_TESS_DATA_NAME = configReader.getString("locale_tess_data_name", null);
 
         //指定对应的操作
         GLOBAL_BROWSER_CLOSE_ACTION = Constant.EleFoundStatus.fromString(configReader.getString("browser_close_action", BREAK.name()));

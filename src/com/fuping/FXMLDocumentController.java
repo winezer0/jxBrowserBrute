@@ -36,7 +36,6 @@ import static cn.hutool.core.util.StrUtil.isEmptyIfStr;
 import static com.fuping.BrowserUtils.BrowserUtils.*;
 import static com.fuping.CaptchaIdentify.CaptchaUtils.LoadImageToFile;
 import static com.fuping.CaptchaIdentify.RemoteApiIdent.remoteIndentCaptcha;
-import static com.fuping.CaptchaIdentify.TesseractsLocaleIdent.localeIdentCaptcha;
 import static com.fuping.CommonUtils.UiUtils.*;
 import static com.fuping.CommonUtils.Utils.*;
 import static com.fuping.LoadConfig.Constant.*;
@@ -127,10 +126,6 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private TextField bro_id_captcha_box_ele_text;
     @FXML
-    private RadioButton bro_id_yzm_remote_ident_radio;
-    @FXML
-    private RadioButton bro_id_locale_ident_flag_radio;
-    @FXML
     private TextField bro_id_captcha_regex_text;
 
     @FXML
@@ -167,7 +162,7 @@ public class FXMLDocumentController implements Initializable {
     private boolean executeJavaScriptMode = false;
 
     //识别验证码的函数, 便于合并
-    private String identCaptcha(boolean remoteIdentFlag, String imagePath, byte[] imageBytes){
+    private String identCaptcha(String imagePath, byte[] imageBytes){
         //获取验证码筛选条件
         String ident_format_length = this.bro_id_ident_format_length_text.getText(); //期望长度
         String ident_format_regex = this.bro_id_ident_format_regex_text.getText(); //期望格式
@@ -175,62 +170,47 @@ public class FXMLDocumentController implements Initializable {
 
         //记录验证码识别结果
         String captcha_indent_text = null;
-        //远程识别模式
-        if(remoteIdentFlag){
-            //获取是被接口信息接口URL
-            String remote_ident_url_text = this.bro_id_remote_ident_url_text.getText().trim();
-            if (isEmptyIfStr(remote_ident_url_text)){
-                this.bro_id_remote_ident_url_text.requestFocus();
-                return null;
-            }
-            //获取响应判断条件
-            String remote_resp_is_ok_status = this.bro_id_remote_resp_is_ok_status_text.getText(); //期望的 远程OCR接口  正常响应状态码 如 200
-            String remote_resp_is_ok_keywords = this.bro_id_remote_resp_is_ok_keywords_text.getText(); //期望的 远程OCR接口 正常响应关键字 默认空
+        //获取是被接口信息接口URL
+        String remote_ident_url_text = this.bro_id_remote_ident_url_text.getText().trim();
+        if (isEmptyIfStr(remote_ident_url_text)){
+            this.bro_id_remote_ident_url_text.requestFocus();
+            return null;
+        }
+        //获取响应判断条件
+        String remote_resp_is_ok_status = this.bro_id_remote_resp_is_ok_status_text.getText(); //期望的 远程OCR接口  正常响应状态码 如 200
+        String remote_resp_is_ok_keywords = this.bro_id_remote_resp_is_ok_keywords_text.getText(); //期望的 远程OCR接口 正常响应关键字 默认空
+        //响应结果正则提取
+        String ident_result_extract_regex = this.bro_id_remote_ident_result_extract_regex_text.getText(); //从响应中提取验证码结果的正则 默认获取全部
 
-            //响应结果正则提取
-            String ident_result_extract_regex = this.bro_id_remote_ident_result_extract_regex_text.getText(); //从响应中提取验证码结果的正则 默认获取全部
-
-            try {
-                //识别图片地址
-                if (ElementUtils.isNotEmptyObj(imagePath)){
-                    captcha_indent_text = remoteIndentCaptcha(
-                            imagePath,
-                            remote_ident_url_text,
-                            remote_resp_is_ok_status,
-                            remote_resp_is_ok_keywords,
-                            ident_result_extract_regex,
-                            ident_format_regex,
-                            ident_format_length,
-                            ident_time_out
-                    );
-                } else {
-                    captcha_indent_text = remoteIndentCaptcha(imageBytes,
-                            remote_ident_url_text,
-                            remote_resp_is_ok_status,
-                            remote_resp_is_ok_keywords,
-                            ident_result_extract_regex,
-                            ident_format_regex,
-                            ident_format_length,
-                            ident_time_out
-                    );
-                }
-                printlnInfoOnUIAndConsole(String.format("验证码 远程识别结果: [%s]", captcha_indent_text));
-            }catch (Exception e){
-                printlnErrorOnUIAndConsole(String.format("验证码 远程识别错误: [%s]", e.getMessage()));
-                e.printStackTrace();
+        try {
+            //识别图片地址
+            if (ElementUtils.isNotEmptyObj(imagePath)){
+                captcha_indent_text = remoteIndentCaptcha(
+                        imagePath,
+                        remote_ident_url_text,
+                        remote_resp_is_ok_status,
+                        remote_resp_is_ok_keywords,
+                        ident_result_extract_regex,
+                        ident_format_regex,
+                        ident_format_length,
+                        ident_time_out
+                );
+            } else {
+                captcha_indent_text = remoteIndentCaptcha(
+                        imageBytes,
+                        remote_ident_url_text,
+                        remote_resp_is_ok_status,
+                        remote_resp_is_ok_keywords,
+                        ident_result_extract_regex,
+                        ident_format_regex,
+                        ident_format_length,
+                        ident_time_out
+                );
             }
-        } else {
-            try {
-                if (ElementUtils.isNotEmptyObj(imagePath)){
-                    captcha_indent_text = localeIdentCaptcha(imagePath, ident_format_regex, ident_format_length, GLOBAL_LOCALE_TESS_DATA_NAME);
-                } else {
-                    captcha_indent_text = localeIdentCaptcha(imageBytes, ident_format_regex, ident_format_length, GLOBAL_LOCALE_TESS_DATA_NAME);
-                }
-                printlnInfoOnUIAndConsole(String.format("验证码 本地识别结果: [%s]", captcha_indent_text));
-            } catch (Exception e) {
-                printlnInfoOnUIAndConsole(String.format("验证码 本地识别出错: [%s]", e.getMessage()));
-                e.printStackTrace();
-            }
+            printlnInfoOnUIAndConsole(String.format("验证码 远程识别结果: [%s]", captcha_indent_text));
+        }catch (Exception e){
+            printlnErrorOnUIAndConsole(String.format("验证码 远程识别错误: [%s]", e.getMessage()));
+            e.printStackTrace();
         }
         return captcha_indent_text;
     }
@@ -535,8 +515,6 @@ public class FXMLDocumentController implements Initializable {
         //设置验证码识别开关
         setWithCheck(this.bro_id_ident_captcha_switch_check, default_ident_captcha_switch);
         this.bro_id_ident_captcha_switch_check.setTooltip(new Tooltip("开启验证码识别功能"));
-        //设置验证码识别方式
-        setWithCheck(default_locale_identify_switch ? this.bro_id_locale_ident_flag_radio : this.bro_id_yzm_remote_ident_radio, true);
         //设置验证码属性
         setWithCheck(this.bro_id_captcha_actual_url_text, default_captcha_actual_url);
         this.bro_id_captcha_actual_url_text.setTooltip(new Tooltip("验证码请求包的实际请求URL"));
@@ -573,9 +551,6 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML //测试验证码识别功能是否正常
     public void bro_id_remote_ident_test_run(ActionEvent event) {
-        //获取识别方式
-        boolean remoteIdentFlag = this.bro_id_yzm_remote_ident_radio.isSelected();
-
         //获取验证码输入URL的内容
         String bro_captcha_url_text = this.bro_id_captcha_actual_url_text.getText().trim();
         if (isEmptyIfStr(bro_captcha_url_text)) {
@@ -588,7 +563,7 @@ public class FXMLDocumentController implements Initializable {
             public void run() {
                 String imagePath = LoadImageToFile(bro_captcha_url_text, "TestRemote.jpg");
                 printlnDebugOnUIAndConsole(String.format("Stored Image [%s] To [%s]", bro_captcha_url_text, imagePath));
-                identCaptcha(remoteIdentFlag, imagePath, null);
+                identCaptcha(imagePath, null);
             }
         }).start();
     }
@@ -851,13 +826,17 @@ public class FXMLDocumentController implements Initializable {
 
                             //进行预点击操作 //不进行错误处理
                             if (bro_pre_click_ele_text.length()>0){
-                                try {
-                                    Element submitElement = findElementByOption(document, bro_pre_click_ele_text, bro_pre_click_ele_type);
-                                    submitElement.click();
-                                    Thread.sleep(500);
-                                } catch (Exception exception) {
-                                    exception.printStackTrace();
-                                    printlnErrorOnUIAndConsole(String.format("Error For Location:[%s] <--> Action:[%s] <--> Error:[%s]", bro_pre_click_ele_text, bro_pre_click_ele_type, exception.getMessage()));
+                                String[] pre_click_ele_text_list = bro_pre_click_ele_text.split("&&");
+                                //支持多个预点击操作
+                                for (String ele_text : pre_click_ele_text_list){
+                                    try {
+                                        Element submitElement = findElementByOption(document, ele_text, bro_pre_click_ele_type);
+                                        submitElement.click();
+                                        Thread.sleep(500);
+                                    } catch (Exception exception) {
+                                        exception.printStackTrace();
+                                        printlnErrorOnUIAndConsole(String.format("Error For Location:[%s] <--> Action:[%s] <--> Error:[%s]", ele_text, bro_pre_click_ele_type, exception.getMessage()));
+                                    }
                                 }
                             }
 
@@ -912,8 +891,7 @@ public class FXMLDocumentController implements Initializable {
                                 }
 
                                 //开始验证码识别
-                                boolean remoteIdentFlag = bro_id_yzm_remote_ident_radio.isSelected();
-                                String captchaText = identCaptcha(remoteIdentFlag, null, fxmlInstance.captchaPictureData);
+                                String captchaText = identCaptcha(null, fxmlInstance.captchaPictureData);
                                 //判断验证码 是否是否正确
                                 if(isEmptyIfStr(captchaText)){
                                     printlnErrorOnUIAndConsole(String.format("识别验证码失败 (结果为空) 重新测试...", captchaText));
