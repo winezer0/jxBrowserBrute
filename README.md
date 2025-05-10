@@ -52,6 +52,13 @@ java -Dconfig=xxx.prop -jar JXBrowerBrute.jar
 
 默认使用ddddocr_api的接口即可
 
+```
+dddd_ocr_api 
+https://github.com/winezer0/OcrApi/tree/main/dddd_ocr_api
+```
+
+
+
 #### 自定义远程识别OCR API服务器
 
 本工具会通过post传输base64的图片数据到ocr识别接口
